@@ -1,15 +1,39 @@
-
-import './App.css'
+import './App.css';
+import ModalForm from './components/ModalForm';
+import NavBar from './components/NavBar';
+import TableList from './components/TableList';
+import { useState } from 'react';
 
 function App() {
 
+  const [isOpen, setIsOpen] = useState(false);
+  const [modalMode, setModalMode] = useState('add');
+
+  const handleOpen = (mode) => {
+      setModalMode(mode);
+      setIsOpen(true);
+  };
+
+  const handleSubmit = () => {
+      if (modalMode === 'add') {
+          // Handle add item
+      } else {
+          // Handle edit item
+      }
+      setIsOpen(false);
+  };
 
   return (
     <>
-      <div className="flex items-center justify-between">
-      <h1 className="text-red-600 font-bold underline">Hello, World!</h1>
-      <button className='btn btn-primary'>click</button>
+      <div className="py-5 px-5 ">
+        <NavBar onOpen={() => handleOpen('add')} />
+        <TableList onOpen={() => handleOpen('edit')} />
+        <ModalForm isOpen={isOpen} 
+        onClose={() => setIsOpen(false)}
+        mode={modalMode}
+        onSubmit={handleSubmit}/>
       </div>
+      
 
     </>
   )
