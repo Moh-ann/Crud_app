@@ -1,28 +1,19 @@
-export default function NavBar ({ onOpen}) {
-    return (
-        <>
-            <div className="navbar bg-base-100">
-                <div className="navbar-start">
-                    <a className="btn btn-ghost text-xl">ClientManager</a>
-                </div>
+import React from 'react'
 
-
-                <div className="navabr-center">
-                   <div className="form-control">
-                        <input type="text" placeholder="Search" className=" input input-bordered w-48 md:w-auto" />
-                    </div>
-                </div>
-                
-
-                <div className="navbar-end">
-                    <a className="btn btn-primary" onClick={onOpen}>Add Client</a>
-                </div>
+const NavBar = () => {
+  return (
+    <>
+        <div className="navbar bg-base-100 shadow-sm">
+            <div className="navbar-start">
+                <a className="btn btn-ghost text-xl">Clients</a>
             </div>
-                
-        
-        </>
-    )
+           <input type="text" placeholder="Search" className="input input-bordered w-54 md:w-auto" />
+            <div className="navbar-end">
+                <a className="btn btn-primary">Button</a>
+            </div>
+        </div>
+    </>
+  )
 }
 
-
-
+export default NavBar
