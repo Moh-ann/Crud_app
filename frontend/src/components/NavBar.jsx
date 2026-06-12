@@ -1,19 +1,29 @@
-import React from 'react'
-
-const NavBar = () => {
-  return (
-    <>
-        <div className="navbar bg-base-100 shadow-sm">
+export default function Navbar({ onOpen }) {
+    return (
+        <>
+           <div className="navbar bg-base-100">
             <div className="navbar-start">
-                <a className="btn btn-ghost text-xl">Clients</a>
+                {/* -- drop down <div></div> */}
+                {/* ++ logo */}
+                <a className="btn btn-ghost text-xl">ClientManager</a>
+                {/* ++ search input */}
+                
             </div>
-           <input type="text" placeholder="Search" className="input input-bordered w-54 md:w-auto" />
+            <div className="navbar-center">
+                <div className="form-control">
+                    {/* w-48 */}
+                    <input type="text" placeholder="Search" className=" input input-bordered w-48 md:w-auto" />
+                </div>
+                
+            </div>
             <div className="navbar-end">
-                <a className="btn btn-primary">Button</a>
-            </div>
-        </div>
-    </>
-  )
-}
+                {/* -- svg burrnos divs */}
+                {/* ++ add modal on clcik button  */}
 
-export default NavBar
+                <button onClick={onOpen} className="btn btn-primary">Add Client</button>
+
+            </div>
+            </div>
+</>
+    )
+}
